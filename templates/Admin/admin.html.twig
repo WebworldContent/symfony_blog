@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <body style="background-color: aquamarine">
 <div class="container">
     <h2>Welcome Admin</h2>
     <form action="{{ path('admin_check') }}" method="POST">
@@ -20,4 +21,5 @@
         <button type="submit" class="btn  btn-primary btn-default">Submit</button>
     </form>
 </div>
+    </body>
 {% endblock %}

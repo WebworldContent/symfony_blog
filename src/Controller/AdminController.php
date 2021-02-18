@@ -16,7 +16,15 @@ use function Symfony\Component\DependencyInjection\Loader\Configurator\param;
 class AdminController extends AbstractController
 {
     /**
-     * @Route("/",name="admin")
+     * @Route("/")
+     */
+    public function index(){
+
+        return $this->render('index/index.html.twig');
+    }
+
+    /**
+     * @Route("/admin",name="admin")
      */
     public function AdminPage()
     {
@@ -46,8 +54,8 @@ class AdminController extends AbstractController
         $em->persist($obj);
         $em->flush();
 
-        return new Response('<h1>Data Submitted</h1>');
-//        return $this->redirect($this->generateUrl('admin',array('param1' => 'done')));
+//        return new Response('<h1>Data Submitted</h1>');
+        return $this->redirect($this->generateUrl('blog'));
     }
 
 
