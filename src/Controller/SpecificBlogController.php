@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Entity\Blog;
+use App\Entity\NewBlog;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -16,7 +17,7 @@ class SpecificBlogController extends AbstractController
     public function specificBlog($id){
 
         $data = $this->getDoctrine()
-            ->getRepository(Blog::class)
+            ->getRepository(NewBlog::class)
             ->find($id);
 
         if (!$data) {

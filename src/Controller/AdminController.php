@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Entity\Blog;
+use App\Entity\NewBlog;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -35,10 +36,11 @@ class AdminController extends AbstractController
 
         $em = $this->getDoctrine()->getManager();
 
-        $obj = new Blog();
+
+        $obj = new NewBlog();
 
         $obj->setTitle($title);
-        $obj->setIntroContent($intro_content);
+        $obj->setIntoContent($intro_content);
         $obj->setContent($content);
 
         $em->persist($obj);

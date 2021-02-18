@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Blog;
+use App\Entity\NewBlog;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,7 +16,7 @@ class BlogController extends AbstractController
     public function index(): Response
     {
         $data = $this->getDoctrine()
-            ->getRepository(Blog::class)
+                ->getRepository(NewBlog::class)
             ->findAll();
 
         if (!$data) {
@@ -23,7 +24,7 @@ class BlogController extends AbstractController
                 'No product found for id '
             );
         }
-        // dump($data);
+        //dump($data);
 //        return new Response('Check out this great product: '.$product->getName())
         return $this->render('blog/index.html.twig',[
             "blog_data"=>$data

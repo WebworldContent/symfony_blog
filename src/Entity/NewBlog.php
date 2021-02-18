@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\BlogRepository;
+use App\Repository\NewBlogRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=BlogRepository::class)
+ * @ORM\Entity(repositoryClass=NewBlogRepository::class)
  */
-class Blog
+class NewBlog
 {
     /**
      * @ORM\Id
@@ -22,16 +22,15 @@ class Blog
      */
     private $title;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $intoContent;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
     private $content;
-
-    /**
-     * @ORM\Column(type="text", length=255, nullable=true)
-     */
-    private $intro_content;
 
     public function getId(): ?int
     {
@@ -50,7 +49,17 @@ class Blog
         return $this;
     }
 
+    public function getIntoContent(): ?string
+    {
+        return $this->intoContent;
+    }
 
+    public function setIntoContent(?string $intoContent): self
+    {
+        $this->intoContent = $intoContent;
+
+        return $this;
+    }
 
     public function getContent(): ?string
     {
@@ -60,18 +69,6 @@ class Blog
     public function setContent(?string $content): self
     {
         $this->content = $content;
-
-        return $this;
-    }
-
-    public function getIntroContent(): ?string
-    {
-        return $this->intro_content;
-    }
-
-    public function setIntroContent(?string $intro_content): self
-    {
-        $this->intro_content = $intro_content;
 
         return $this;
     }

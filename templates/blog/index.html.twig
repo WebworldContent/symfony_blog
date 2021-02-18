@@ -26,14 +26,14 @@
             <div class="w3-col l8 s12">
                 <!-- Blog entry -->
                 <div class="w3-card-4 w3-margin w3-white">
-                    <img src="/w3images/woods.jpg" alt="Nature" style="width:100%">
+                    <img src="{{ asset("assests/images/blog.jpg") }}" alt="Nature" style="width:100%;height: 300px;">
                     <div class="w3-container">
                         <h3><b>{{ data.title }}</b></h3>
-                        <h5>Title description, <span class="w3-opacity">April 7, 2014</span></h5>
+                        <h5>Title description</h5>
                     </div>
 
                     <div class="w3-container">
-                        <p>{{ data.content }}</p>
+                        <p>{{ data.intoContent }}</p>
                         <div class="w3-row">
                             <div class="w3-col m8 s12">
 
